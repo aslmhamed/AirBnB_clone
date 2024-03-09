@@ -11,9 +11,8 @@ from models.state import State
 from models.user import User
 
 
-
-models_dict = {"BaseModel": BaseModel, "User": User, "City": City, "Place": Place,
-               "Review": Review, "State": State}
+models_dict = {"BaseModel": BaseModel, "User": User, "City": City,
+               "Place": Place, "Review": Review, "State": State}
 
 
 class FileStorage():

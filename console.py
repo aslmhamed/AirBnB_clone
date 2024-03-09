@@ -13,8 +13,8 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-obj_model = {"BaseModel": BaseModel, "User": User, "City": City, "Place": Place,
-               "Review": Review, "State": State}
+obj_model = {"BaseModel": BaseModel, "User": User, "City": City,
+             "Place": Place, "Review": Review, "State": State}
 
 
 class HBNBCommand(cmd.Cmd):
