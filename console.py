@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line):
-        """Print the string represenation of all the instances"""
+        """Print the string represenation of all the instances\n"""
         disp_list = []
         storage.reload()
         get_objects = storage.all()
@@ -115,6 +115,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, line):
         """Update the model and store it to the json file
            Usage: update <class name> <id> <attribute name> "<attribute value>"
+           \n
         """
         if not line:
             print("** class name missing **")
