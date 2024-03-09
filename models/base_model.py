@@ -31,10 +31,12 @@ class BaseModel():
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
+        """Saves the object to the json file and updates the time"""
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
+        """Converts the object to a dictionary"""
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
             new_dict["created_at"] = new_dict["created_at"].isoformat()
