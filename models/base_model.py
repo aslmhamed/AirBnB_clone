@@ -2,8 +2,9 @@
 """This is the BaseModel for all the models."""
 
 from datetime import datetime
-import uuid
 import models
+import uuid
+
 
 
 class BaseModel():
