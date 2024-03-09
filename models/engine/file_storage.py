@@ -12,7 +12,9 @@ from models.user import User
 
 
 models_dict = {"BaseModel": BaseModel, "User": User, "City": City,
-               "Place": Place, "Review": Review, "State": State}
+               "Place": Place, "Review": Review,
+               "State": State, "Amenity": Amenity
+               }
 
 
 class FileStorage():
