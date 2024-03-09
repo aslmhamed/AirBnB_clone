@@ -13,16 +13,18 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-obj_model = {"BaseModel": BaseModel, "User": User, "City": City,
-             "Place": Place, "Review": Review, "State": State}
-
 
 class HBNBCommand(cmd.Cmd):
     """Displays a command prompt and process commands\n"""
+
     prompt = "(hbnb) "
+    obj_model = {
+        "BaseModel": BaseModel, "User": User, "City": City,
+        "Place": Place, "Review": Review, "State": State
+        }
 
     def emptyline(self):
-        """ Overrides the default emptyline """
+        """Overrides the default emptyline\n"""
         pass
 
     def do_EOF(self, line):
@@ -39,11 +41,11 @@ class HBNBCommand(cmd.Cmd):
         if len(comm) == 0:
             print("** class name missing **")
             return
-        elif comm[0] not in obj_model.keys():
+        elif comm[0] not in self.obj_model.keys():
             print("** class doesn't exist **")
             return
         else:
-            new_obj = obj_model[comm[0]]()
+            new_obj = self.obj_model[comm[0]]()
             print(new_obj.id)
             new_obj.save()
             return
@@ -54,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         if len(comm) == 0:
             print("** class name missing **")
             return
-        elif comm[0] not in obj_model.keys():
+        elif comm[0] not in self.obj_model.keys():
             print("** class doesn't exist **")
             return
         elif len(comm) <= 1:
@@ -76,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
         if len(comm) == 0:
             print("** class name missing **")
             return
-        elif comm[0] not in obj_model.keys():
+        elif comm[0] not in self.obj_model.keys():
             print("** class doesn't exist **")
             return
         elif len(comm) <= 1:
@@ -104,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         comm = split(line)
-        if comm[0] in obj_model.keys():
+        if comm[0] in self.obj_model.keys():
             for get_object_key in get_objects:
                 if comm[0] in get_object_key:
                     disp_list.append(str(get_objects[get_object_key]))
@@ -123,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
         storage.reload()
         get_objects = storage.all()
         comm = split(line)
-        if comm[0] not in obj_model.keys():
+        if comm[0] not in self.obj_model.keys():
             print("** class doesn't exist **")
 
         if len(comm) == 1:
