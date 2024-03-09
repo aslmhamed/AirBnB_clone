@@ -24,11 +24,11 @@ class FileStorage():
     __objects = {}
 
     def all(self):
-        """Returns the dictionary objects."""
+        """Return the dictionary objects."""
         return self.__objects
 
     def new(self, obj):
-        """Appends a new object to the object dictionary."""
+        """Append a new object to the object dictionary."""
         if obj is not None:
             self.__objects[f'{obj.__class__.__name__}.{obj.id}'] = obj
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the Place model"""
+"""This is the Place model."""
 
 from models.base_model import BaseModel
 
@@ -20,5 +20,5 @@ class Place(BaseModel):
     amenity_ids = []    # Amenity.id - list of strings
 
     def __init__(self, *args, **kwargs):
-        """Initialize the Place model from the Basemodel"""
+        """Initialize the Place model from the Basemodel."""
         super().__init__(*args, **kwargs)
