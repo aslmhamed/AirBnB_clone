@@ -1,20 +1,25 @@
 #!/usr/bin/python3
 """This is the console/entry point to the whole program."""
 
-
 import cmd
-import json
 from models.base_model import BaseModel
+import json
 from models import storage
 from shlex import split
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
-obj_model = {"BaseModel": BaseModel}
+obj_model = {"BaseModel": BaseModel, "User": User, "City": City, "Place": Place,
+               "Review": Review, "State": State}
+
 
 class HBNBCommand(cmd.Cmd):
     """Displays a command prompt and process commands\n"""
-
     prompt = "(hbnb) "
-
 
     def emptyline(self):
         """ Overrides the default emptyline """
@@ -141,14 +146,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             setattr(my_object, comm[2], comm[3])
         storage.save()
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
