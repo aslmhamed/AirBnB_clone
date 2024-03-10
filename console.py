@@ -110,17 +110,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-    def do_count(self, line):
-        """
-        Count how many instances are there of a particular class
-        """
-        count_inst = 0
-        obj_dict = storage.all()
-        for key in obj_dict:
-            if (line in key):
-                count_inst += 1
-        print(count_inst)
-
     def do_update(self, line):
         """Update the model and store it to the json file
            Usage: update <class name> <id> <attribute name> "<attribute value>"
