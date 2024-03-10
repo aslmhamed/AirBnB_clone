@@ -2,14 +2,14 @@
 """This is the console/entry point to the whole program."""
 
 import cmd
-from models.base_model import BaseModel
-import json
 from models import storage
+from models.base_model import BaseModel
+from models.amenity import Amenity
+import json
 from shlex import split
 from models.user import User
 from models.state import State
 from models.city import City
-from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
@@ -20,8 +20,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     obj_model = {
         "BaseModel": BaseModel, "User": User, "City": City,
-        "Place": Place, "Review": Review, "State": State
-        }
+        "Place": Place, "Review": Review, "State": State,
+        "Amenity": Amenity}
 
     def emptyline(self):
         """Overrides the default emptyline\n"""
@@ -48,7 +48,6 @@ class HBNBCommand(cmd.Cmd):
             new_obj = self.obj_model[comm[0]]()
             print(new_obj.id)
             new_obj.save()
-            return
 
     def do_show(self, line):
         """Print the instance using the id\n"""
@@ -62,7 +61,6 @@ class HBNBCommand(cmd.Cmd):
         elif len(comm) <= 1:
             print("** instance id missing **")
             return
-
         storage.reload()
         all_obj = storage.all()
         get_object_key = comm[0] + "." + comm[1]
@@ -84,7 +82,6 @@ class HBNBCommand(cmd.Cmd):
         elif len(comm) <= 1:
             print("** instance id missing **")
             return
-
         storage.reload()
         all_obj = storage.all()
         get_object_key = comm[0] + "." + comm[1]
@@ -104,7 +101,6 @@ class HBNBCommand(cmd.Cmd):
                 disp_list.append(str(get_objects[get_object_key]))
             print(json.dumps(disp_list))
             return
-
         comm = split(line)
         if comm[0] in self.obj_model.keys():
             for get_object_key in get_objects:

@@ -17,7 +17,7 @@ class Place(BaseModel):
     price_by_night = 0
     latitude = 0.0
     longitude = 0.0
-    amenity_ids = []    # Amenity.id - list of strings
+    amenity_ids = []
 
     def __init__(self, *args, **kwargs):
         """Initialize the Place model from the Basemodel."""
