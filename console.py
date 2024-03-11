@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             get_objects[f'{comm[0]}.{comm[1]}']
         except KeyError:
-            print("** no instance found  **")
+            print("** no instance found **")
             return
         if len(comm) == 2:
             print("** attribute name missing **")
