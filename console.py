@@ -123,6 +123,7 @@ class HBNBCommand(cmd.Cmd):
         comm = split(line)
         if comm[0] not in self.obj_model.keys():
             print("** class doesn't exist **")
+            return
 
         if len(comm) == 1:
             print("** instance id missing **")
